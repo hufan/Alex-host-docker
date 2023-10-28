@@ -10,7 +10,7 @@ RUN apt-get install -y sudo openssl apt-utils
 WORKDIR /workdir
 
 # Define username and temporary uid and gid
-ENV USER=Alex USER_ID=1000 USER_GID=1000
+ENV USER=alex USER_ID=1000 USER_GID=1000
 
 # now creating user, change password to 'ubuntu'
 RUN groupadd --gid "${USER_GID}" "${USER}" && \
@@ -74,7 +74,7 @@ RUN apt-get update && apt-get install -y \
      u-boot-tools mtd-utils android-tools-fsutils device-tree-compiler gdisk m4 \
      openjdk-8-jdk
 
-RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo && chmod a+rx /bin/repo
+RUN curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo > /bin/repo && chmod a+rx /bin/repo
 
 # Install development utilities
 RUN apt-get update && apt-get install -y \

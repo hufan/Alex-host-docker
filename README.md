@@ -34,7 +34,7 @@ You may use the sudo command inside the container with these credentials:
 
 |Username   | Password  |
 |-----------|-----------|
-| Alex      | ubuntu
+| alex      | ubuntu
 <br>
 
 # Rebuilding Docker Image

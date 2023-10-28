@@ -17,7 +17,7 @@ DOCKER_VOLUMES=""
 PRIVLEGED=""
 BUILD_CACHE=""
 
-DOCKER_IMAGE_NAME="Alex"
+DOCKER_IMAGE_NAME="alex"
 
 build_image() {
     DOCKERFILE="$1"
