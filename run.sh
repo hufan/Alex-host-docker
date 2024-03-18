@@ -8,7 +8,7 @@ readonly GIT_COMMIT="$(git --git-dir=${DIR_SCRIPT}/.git log -1 --format=%h)"
 
 cd ${DIR_SCRIPT}
 
-UBUNTU_VERSIONS_SUPPORTED=("20.04" "18.04")
+UBUNTU_VERSIONS_SUPPORTED=("22.04" "20.04" "18.04")
 UBUNTU_VERSION="20.04"
 WORKDIR=$(pwd)
 SCRIPT=""
@@ -17,6 +17,8 @@ DOCKER_VOLUMES=""
 PRIVLEGED=""
 BUILD_CACHE=""
 
+
+USER_NAME="alex"
 DOCKER_IMAGE_NAME="alex"
 
 build_image() {
@@ -165,7 +167,7 @@ if [ ! -f ${HOME}/.gitconfig ]; then
 fi
 
 docker run --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
-    -v ~/.ssh:/home/alex/.ssh \
+    -v ~/.ssh:/home/${USER_NAME}/.ssh \
     -v ${WORKDIR}:/workdir \
     -v ~/.gitconfig:/tmp/host_gitconfig \
     -v /usr/src:/usr/src \
