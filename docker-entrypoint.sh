@@ -26,8 +26,8 @@ chown -R ${HOST_USER_ID}:${HOST_USER_GID} /home/${USER}
 # This ensures that the container uses the same Git configuration as the host.
 # Copying (instead of mounting) avoids potential access conflicts, especially
 # when the file is being accessed or modified by multiple containers or the host simultaneously.
-cp /tmp/host_gitconfig /home/alex/.gitconfig
-chown ${USER}:${USER} /home/alex/.gitconfig
+cp /tmp/host_gitconfig /home/${USER}/.gitconfig
+chown ${USER}:${USER} /home/${USER}/.gitconfig
 
 # allow user to run sudo
 adduser ${USER} sudo

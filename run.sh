@@ -18,8 +18,9 @@ PRIVLEGED=""
 BUILD_CACHE=""
 
 
-USER_NAME="alex"
-DOCKER_IMAGE_NAME="alex"
+# Get user name
+USER_NAME=`whoami`
+# echo "user:"$USER_NAME
 
 build_image() {
     DOCKERFILE="$1"
@@ -27,7 +28,7 @@ build_image() {
         echo "${DIR_SCRIPT}/${DOCKERFILE} not found"
         exit -1
     fi
-    docker build ${BUILD_CACHE} -t "${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE}" ${DIR_SCRIPT} -f ${DOCKERFILE}
+    docker build ${BUILD_CACHE} -t "${USER_NAME}:${DOCKER_IMAGE}" ${DIR_SCRIPT} -f ${DOCKERFILE}
 }
 
 array_contains () {
@@ -142,7 +143,7 @@ parse_args() {
 
 parse_args "$@"
 
-readonly DOCKER_IMAGE="Alexdocker-${UBUNTU_VERSION}-${GIT_COMMIT}"
+readonly DOCKER_IMAGE="${USER_NAME}-docker-${UBUNTU_VERSION}-${GIT_COMMIT}"
 
 # Verify qemu-user-static is is installed
 if [ ! -f /usr/bin/qemu-aarch64-static ]; then
@@ -177,4 +178,4 @@ docker run --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
     ${INTERACTIVE} \
     ${ENV_FILE} \
     ${PRIVLEGED} \
-    ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE}
+    ${USER_NAME}:${DOCKER_IMAGE}
