@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: (GPL-2.0+ OR MIT)
 # Copyright 2023 Alex Ltd.
 
-FROM ubuntu:22.04
+# FROM ubuntu:20.04
+FROM docker.m.daocloud.io/ubuntu:20.04
 MAINTAINER Nate Drude "hufan105@163.com"
 
 RUN apt-get update
