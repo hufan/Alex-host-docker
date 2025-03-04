@@ -167,7 +167,7 @@ if [ ! -f ${HOME}/.gitconfig ]; then
     exit -1
 fi
 
-docker run --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
+#docker run --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
 #docker run --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
 #docker run --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
 docker run --security-opt seccomp=unconfined --rm -e HOST_USER_ID=$uid -e HOST_USER_GID=$gid \
